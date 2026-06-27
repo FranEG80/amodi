@@ -1,6 +1,6 @@
 # AMODI — Asociación Motril Diverso
 
-<p align="center">
+<p align="center" style="background: white;">
   <img src="./public/images/amodi-logo.png" alt="AMODI — Asociación Motril Diverso" width="520">
 </p>
 
