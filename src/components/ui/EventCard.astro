@@ -39,8 +39,8 @@ const { id, date, day, month, fullDate, title, place, time, description, label_c
       <div >
         <h3 class="text-lg font-black leading-snug text-slate-950">{title}</h3>
         <p class="mt-2 text-sm font-black text-brand-violet">{fullDate} · {time}</p>
-        <p class="mt-2 flex  items-start gap-2 text-sm font-bold text-slate-700">
-          <MapPin aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-brand-pink" />
+        <p class="mt-1 mb-2.5 flex  items-start gap-1 text-xs font-bold text-slate-700">
+          <MapPin aria-hidden="true" class="mt-0.5 size-3 shrink-0 text-brand-pink" />
           <span>{place}</span>
         </p>
         <p class=" text-sm  text-slate-700">{description}</p>
@@ -50,7 +50,7 @@ const { id, date, day, month, fullDate, title, place, time, description, label_c
           id={`${id}-poster`}
           title={title}
           poster={poster}
-          class="mt-5 w-full max-w-40"
+          class="mt-5 w-[55%] sm:max-w-40"
           imageClass="aspect-square object-cover object-top"
         />
       )}

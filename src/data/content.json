@@ -203,7 +203,7 @@
       {
         "label": "28 junio",
         "text": "Marcha del Orgullo Motril 2026 con el lema “Por un Motril orgulloso y diverso”.",
-        "label_color": "text-orange-500"
+        "label_color": "text-orange-600"
       },
       {
         "label": "7 julio",
@@ -276,7 +276,7 @@
         "place": "Salida desde Plaza de las Mercedarias",
         "time": "12:00",
         "description": "Salida a las 12:00 desde Plaza de las Mercedarias. Lema: “Por un Motril orgulloso y diverso”.",
-        "label_color": "text-orange-500"
+        "label_color": "text-orange-600"
       },
       {
         "id": "motril-tropical-pride",
