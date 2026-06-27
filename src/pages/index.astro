@@ -14,6 +14,6 @@ import content from '../data/content.json';
   <AboutSection about={content.about} services={content.services} />
   <PrideSection pride={content.pride} events={content.events} />
   <EventsSection events={content.events} />
-  <NewsSection news={content.news} />
-  <ParticipationSection participation={content.participation} contact={content.contact} />
+  <NewsSection news={content.news} membershipPoster={content.participation.poster} />
+  <ParticipationSection participation={content.participation} contact={content.contact} socials={content.socials} />
 </BaseLayout>

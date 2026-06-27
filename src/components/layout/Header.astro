@@ -50,7 +50,12 @@ const { brand, navigation, cta, uiLabels } = Astro.props;
       ))}
     </ul>
 
-    <a class="hidden min-h-11 items-center rounded-full bg-rainbow px-5 py-3 text-sm font-black uppercase text-white shadow-rainbow transition duration-200 hover:-translate-y-0.5 hover:shadow-rainbow-lg focus-ring motion-reduce:transform-none lg:inline-flex" href={cta.href}>
+    <a
+      class="hidden min-h-11 items-center rounded-full bg-rainbow px-5 py-3 text-sm font-black uppercase text-white shadow-rainbow transition duration-200 hover:-translate-y-0.5 hover:shadow-rainbow-lg focus-ring motion-reduce:transform-none lg:inline-flex"
+      href={cta.href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {cta.label}
     </a>
 
@@ -67,10 +72,33 @@ const { brand, navigation, cta, uiLabels } = Astro.props;
             </li>
           ))}
         </ul>
-        <a class="mt-3 flex min-h-11 items-center justify-center rounded-full bg-rainbow px-5 py-3 text-sm font-black uppercase text-white shadow-rainbow focus-ring" href={cta.href}>
+        <a
+          class="mt-3 flex min-h-11 items-center justify-center rounded-full bg-rainbow px-5 py-3 text-sm font-black uppercase text-white shadow-rainbow focus-ring"
+          href={cta.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {cta.label}
         </a>
       </div>
     </details>
   </nav>
 </header>
+
+<script>
+  const initializeMobileMenu = () => {
+    document.querySelectorAll<HTMLDetailsElement>('.mobile-menu').forEach((menu) => {
+      if (menu.dataset.menuReady === 'true') return;
+      menu.dataset.menuReady = 'true';
+
+      menu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          menu.removeAttribute('open');
+        });
+      });
+    });
+  };
+
+  initializeMobileMenu();
+  document.addEventListener('astro:page-load', initializeMobileMenu);
+</script>

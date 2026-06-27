@@ -1,6 +1,13 @@
 ---
 import { ArrowRight, MapPin } from 'lucide-astro';
-import Button from '../ui/Button.astro';
+import PosterDialog from '../ui/PosterDialog.astro';
+
+interface PosterImage {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
 
 interface EventItem {
   id: string;
@@ -24,16 +31,14 @@ interface Props {
       text: string;
       label_color?: string;
     }[];
-    cta: { label: string; href: string };
-    image: {
-      src: string;
-      alt: string;
-      width: number;
-      height: number;
-    };
   };
   events: {
     title: string;
+    program: {
+      id: string;
+      title: string;
+      poster: PosterImage;
+    };
     items: EventItem[];
   };
 }
@@ -43,32 +48,17 @@ const { pride, events } = Astro.props;
 
 <section id="orgullo" class="section-pad bg-soft">
   <div class="mx-auto container px-4 sm:px-6 lg:px-8">
-    <div class="grid overflow-hidden rounded-4xl border border-white/80 bg-white shadow-card lg:min-h-[31rem] xl:grid-cols-[1fr_1.35fr] lg:grid-cols-[1fr_1fr] lg:items-stretch sm:gap-6">
-      <figure class="relative isolate min-h-[24rem] overflow-hidden rounded-4xl lg:min-h-full">
-        <img
-          src={pride.image.src}
-          alt={pride.image.alt}
-          width={pride.image.width}
-          height={pride.image.height}
-          class="absolute inset-0 -z-10 h-full w-full object-cover"
-          loading="lazy"
-          decoding="async"
+    <div class="grid gap-4 overflow-hidden rounded-4xl border border-white/80 bg-white shadow-card lg:grid-cols-[0.78fr_1.22fr] lg:items-stretch">
+      <div id={events.program.id} class="scroll-mt-28 bg-white rounded-4xl">
+        <PosterDialog
+          id="orgullo-motril-programa-destacado"
+          title={events.program.title}
+          poster={events.program.poster}
+          class="h-full w-full rounded-4xl"
+          imageClass="aspect-[1056/1492] object-cover object-top rounded-4xl"
+          flush
         />
-        <div aria-hidden="true" class="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(7,16,51,0.08)_0%,rgba(7,16,51,0.32)_58%,rgba(7,16,51,0.62)_100%)]"></div>
-        <figcaption class="flex h-full min-h-[24rem] flex-col justify-between p-7 text-white sm:p-9 lg:min-h-full">
-          <div>
-            <p class="font-display-script text-5xl leading-none drop-shadow-lg sm:text-8xl font-bold">Orgullo Motril</p>
-            <p class="font-display-script mt-2 text-6xl leading-none drop-shadow-lg sm:text-8xl font-bold flex items-center gap-8">2026{' '}<span class="inline-block relative">
-               <svg fill="none" aria-hidden="true" class="mt-2 h-32 w-32 shrink-0 text-white sm:h-36 sm:w-36" viewBox="0 0 96 96"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="9.2" d="M49.2 81.8C30.8 68.9 14 54.4 14 35.2c0-9.4 6.1-16.9 14.5-16.9 6.8 0 11.9 4.3 15.2 10 3.7-6.2 9.5-10.1 16.2-10.1C68.3 18.2 74 25 74 34.5c0 17.7-13.5 29.7-24.8 47.3"/><path stroke="#000" stroke-linecap="round" stroke-width="2.6" d="M19 46.5c5.4 11.6 16.1 19.2 27.4 27" opacity=".75"/></svg></span></p>
-          </div>
-          <div class="max-w-lg">
-            <p class="text-pretty text-base font-bold leading-7 drop-shadow">{pride.text}</p>
-            <div class="mt-6">
-              <Button href={pride.cta.href} label={pride.cta.label} icon="calendar" />
-            </div>
-          </div>
-        </figcaption>
-      </figure>
+      </div>
 
       <div class="flex min-h-full flex-col px-4 py-7 sm:px-7 lg:px-10">
         <div>

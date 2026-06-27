@@ -5,7 +5,7 @@ import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import content from '../data/content.json';
 
-const { seo, brand, navigation, participation, footer, contact, uiLabels } = content;
+const { seo, brand, navigation, participation, footer, contact, socials, uiLabels } = content;
 
 const organizationData = {
   '@context': 'https://schema.org',
@@ -16,7 +16,8 @@ const organizationData = {
   email: contact.email.value,
   telephone: contact.phone.value,
   address: contact.address.value,
-  areaServed: brand.scope
+  areaServed: brand.scope,
+  sameAs: socials.map((social) => social.href)
 };
 ---
 

@@ -7,6 +7,12 @@ interface ContactItem {
   href?: string;
 }
 
+interface SocialItem {
+  platform: 'Instagram' | 'Facebook' | 'TikTok';
+  label: string;
+  href: string;
+}
+
 interface Props {
   participation: {
     title: string;
@@ -19,20 +25,24 @@ interface Props {
     email: ContactItem;
     phone: ContactItem;
   };
+  socials: SocialItem[];
 }
 
-const { participation, contact } = Astro.props;
+const { participation, contact, socials } = Astro.props;
 const contactItems = [
   { ...contact.address, Icon: MapPin },
   { ...contact.email, Icon: Mail },
   { ...contact.phone, Icon: Phone }
 ];
-const socialItems = [
-  { label: 'Instagram', Icon: Instagram, text: undefined },
-  { label: 'Facebook', Icon: Facebook, text: undefined },
-  { label: 'X', Icon: undefined, text: 'X' },
-  { label: 'TikTok', Icon: Music2, text: undefined }
-];
+const socialIcons = {
+  Instagram,
+  Facebook,
+  TikTok: Music2
+};
+const socialItems = socials.map((item) => ({
+  ...item,
+  Icon: socialIcons[item.platform]
+}));
 ---
 
 <section
@@ -84,8 +94,10 @@ const socialItems = [
       class="grid content-center justify-items-center gap-6 text-center sm:gap-8 xl:self-stretch xl:border-r xl:border-white/35 xl:px-6 2xl:px-10"
     >
       <a
-        href={contact.email.href}
-        class="focus-ring inline-flex min-h-14 min-w-64 items-center justify-center gap-3 rounded-full bg-white px-7 py-4 text-lg leading-none font-black text-brand-ink uppercase no-underline shadow-soft transition duration-200 hover:-translate-y-0.5 hover:text-brand-pink hover:shadow-card motion-reduce:transition-none sm:text-xl"
+        href={participation.cta.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="focus-ring inline-flex min-h-14 min-w-56 items-center justify-center gap-3 rounded-full bg-white px-6 py-4 text-lg leading-none font-black text-brand-ink uppercase no-underline shadow-soft transition duration-200 hover:-translate-y-0.5 hover:text-brand-pink hover:shadow-card motion-reduce:transition-none sm:text-xl"
       >
         <span>{participation.cta.label}</span>
         <Heart aria-hidden="true" class="size-6 shrink-0" />
@@ -129,16 +141,18 @@ const socialItems = [
       </ul>
 
       <ul aria-label="Redes sociales" class="m-0 flex list-none flex-wrap gap-3 p-0">
-        {socialItems.map(({ label, Icon, text }) => (
+        {socialItems.map(({ label, href, Icon }) => (
           <li>
-            <span
-              class="flex size-12 items-center justify-center rounded-full bg-white text-brand-violet shadow-soft"
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="focus-ring flex size-12 items-center justify-center rounded-full bg-white text-brand-violet shadow-soft transition duration-200 hover:-translate-y-1 hover:text-brand-pink hover:shadow-card motion-reduce:transform-none"
               aria-label={label}
+              title={label}
             >
-              {Icon
-                ? <Icon aria-hidden="true" class="size-6" />
-                : <span aria-hidden="true" class="text-lg font-black">{text}</span>}
-            </span>
+              <Icon aria-hidden="true" class="size-6" />
+            </a>
           </li>
         ))}
       </ul>

@@ -7,7 +7,7 @@
     "ogTitle": "AMODI — Asociación Motril Diverso",
     "ogDescription": "Asociación LGTBIQA+ de Motril y la Costa Tropical dedicada a la igualdad, la visibilidad, el apoyo comunitario y la defensa de los derechos.",
     "ogType": "website",
-    "ogImage": "/images/hero-playa-granada.webp"
+    "ogImage": "/images/og_image.webp"
   },
   "brand": {
     "name": "AMODI",
@@ -56,6 +56,23 @@
     {
       "label": "Contacto",
       "href": "#contacto"
+    }
+  ],
+  "socials": [
+    {
+      "platform": "Instagram",
+      "label": "Instagram @info.amodi",
+      "href": "https://www.instagram.com/info.amodi/"
+    },
+    {
+      "platform": "Facebook",
+      "label": "Facebook Amodi Motril",
+      "href": "https://www.facebook.com/people/Amodi-Motril/61587842893638/"
+    },
+    {
+      "platform": "TikTok",
+      "label": "TikTok @amodi.lgbtiq",
+      "href": "https://www.tiktok.com/@amodi.lgbtiq"
     }
   ],
   "hero": {
@@ -150,7 +167,21 @@
           "height": 1254
         }
       }
-    ]
+    ],
+    "featured": {
+      "id": "punto-arcoiris-motril",
+      "eyebrow": "Atención y acompañamiento",
+      "title": "Punto Arcoíris de Motril",
+      "text": "Un espacio seguro, inclusivo y confidencial de encuentro, asesoramiento y atención para personas LGBTIQA+ y familiares.",
+      "schedule": "Todos los viernes, a partir de las 19:00",
+      "place": "Centro Joven · Parque de los Pueblos de América, Motril",
+      "poster": {
+        "src": "/images/posters/punto-arcoiris-motril.webp",
+        "alt": "Cartel informativo del Punto Arcoíris de Motril.",
+        "width": 1254,
+        "height": 1254
+      }
+    }
   },
   "pride": {
     "title": "Orgullo Motril 2026",
@@ -191,7 +222,7 @@
     ],
     "cta": {
       "label": "Ver programa",
-      "href": "#eventos"
+      "href": "#programa-orgullo-2026"
     },
     "image": {
       "src": "/images/orgullo-motril.webp",
@@ -202,6 +233,19 @@
   },
   "events": {
     "title": "Motril Tropical Pride",
+    "sectionTitle": "Programa y actividades",
+    "program": {
+      "id": "programa-orgullo-2026",
+      "eyebrow": "Programación completa",
+      "title": "Orgullo LGTBIQA+ Motril 2026",
+      "text": "Consulta en un único cartel todas las actividades culturales, educativas, reivindicativas y festivas de esta edición.",
+      "poster": {
+        "src": "/images/posters/orgullo-motril-2026-programa.webp",
+        "alt": "Cartel con la programación completa del Orgullo LGTBIQA+ Motril 2026.",
+        "width": 1056,
+        "height": 1492
+      }
+    },
     "items": [
       {
         "id": "punto-informativo-amodi",
@@ -213,7 +257,13 @@
         "place": "Plaza de la Aurora",
         "time": "10:00 a 13:30",
         "description": "Información sobre diversidad afectivo-sexual, familiar y de género, proyectos de AMODI y participación social.",
-        "label_color": "text-blue-500"
+        "label_color": "text-blue-500",
+        "poster": {
+          "src": "/images/posters/punto-informativo-amodi-27-junio.webp",
+          "alt": "Cartel del punto informativo de AMODI del 27 de junio.",
+          "width": 1254,
+          "height": 1254
+        }
       },
       {
         "id": "marcha-orgullo-motril-2026",
@@ -271,7 +321,13 @@
     "message": "Únete. Participa. Haz visible la diversidad.",
     "cta": {
       "label": "Hazte socio/a",
-      "href": "#contacto"
+      "href": "https://docs.google.com/forms/d/e/1FAIpQLSfOvYwVxak9uM9SLhLdBMPvMxPCk6R7RDcXH5IQMxn09q61lA/viewform"
+    },
+    "poster": {
+      "src": "/images/posters/asociate-amodi.webp",
+      "alt": "Cartel informativo para asociarse a AMODI.",
+      "width": 1254,
+      "height": 1254
     }
   },
   "news": {
@@ -283,11 +339,27 @@
       },
       {
         "title": "Motril Orgulloso y Diverso",
-        "text": "Canción oficial de AMODI para el Orgullo 2026."
+        "text": "Canción oficial de AMODI para el Orgullo 2026.",
+        "poster": {
+          "src": "/images/posters/motril-orgulloso-y-diverso-spotify.webp",
+          "alt": "Cartel de la canción del Orgullo 2026 de AMODI.",
+          "width": 1254,
+          "height": 1254
+        },
+        "action": {
+          "label": "Escuchar en Spotify",
+          "href": "https://open.spotify.com/track/66MdzbzwAnh9uqYs2P3DnT?si=5XD9GWe9R4uv2MxIwO317g"
+        }
       },
       {
         "title": "Pregonera del Orgullo LGTBIQA+ Motril 2026",
-        "text": "Laura Hernández Ortega será la pregonera del Orgullo LGTBIQA+ Motril 2026."
+        "text": "Laura Hernández Ortega será la pregonera del Orgullo LGTBIQA+ Motril 2026.",
+        "poster": {
+          "src": "/images/posters/orgullo-motril-2026-pregonera-laura-hernandez.webp",
+          "alt": "Cartel de Laura Hernández Ortega como pregonera del Orgullo LGTBIQA+ Motril 2026.",
+          "width": 1254,
+          "height": 1254
+        }
       },
       {
         "title": "Mesa de debate sobre derechos LGBTIQ+",

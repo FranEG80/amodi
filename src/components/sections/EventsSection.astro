@@ -2,6 +2,13 @@
 import EventCard from '../ui/EventCard.astro';
 import SectionTitle from '../ui/SectionTitle.astro';
 
+interface PosterImage {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
 interface EventItem {
   id: string;
   date: string;
@@ -13,11 +20,13 @@ interface EventItem {
   time: string;
   description: string;
   label_color?: string;
+  poster?: PosterImage;
 }
 
 interface Props {
   events: {
     title: string;
+    sectionTitle?: string;
     items: EventItem[];
   };
 }
@@ -27,7 +36,7 @@ const { events } = Astro.props;
 
 <section id="eventos" class="section-pad bg-white section-pattern">
   <div class="mx-auto container px-4 sm:px-6 lg:px-8">
-    <SectionTitle title={events.title} />
+    <SectionTitle title={events.sectionTitle ?? events.title} />
     <div class="mt-12 grid gap-5 lg:grid-cols-2">
       {events.items.map((item) => (
         <EventCard
@@ -41,6 +50,7 @@ const { events } = Astro.props;
           time={item.time}
           description={item.description}
           label_color={item.label_color}
+          poster={item.poster}
         />
       ))}
     </div>

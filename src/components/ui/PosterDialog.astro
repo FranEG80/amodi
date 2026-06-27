@@ -1,0 +1,155 @@
+---
+import { Maximize2, X } from 'lucide-astro';
+
+interface PosterImage {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
+interface Props {
+  id: string;
+  title: string;
+  poster: PosterImage;
+  class?: string;
+  imageClass?: string;
+  flush?: boolean;
+}
+
+const {
+  id,
+  title,
+  poster,
+  class: className = '',
+  imageClass = 'aspect-square object-cover object-top',
+  flush = false
+} = Astro.props;
+
+const dialogId = `poster-dialog-${id}`;
+const titleId = `${dialogId}-title`;
+---
+
+<div class:list={['poster-viewer', className]}>
+  <button
+    type="button"
+    class:list={[
+      'focus-ring group relative block h-full w-full overflow-hidden bg-white text-left transition duration-200 motion-reduce:transform-none',
+      flush
+        ? 'border-0 shadow-none'
+        : 'rounded-2xl border border-white/80 shadow-soft hover:-translate-y-1 hover:shadow-card'
+    ]}
+    data-poster-open={dialogId}
+    aria-haspopup="dialog"
+    aria-label={`Abrir cartel: ${title}`}
+  >
+    <img
+      src={poster.src}
+      alt={poster.alt}
+      width={poster.width}
+      height={poster.height}
+      class:list={['block w-full transition duration-300 group-hover:scale-[1.02] motion-reduce:transform-none', imageClass]}
+      loading="lazy"
+      decoding="async"
+    />
+    <span
+      aria-hidden="true"
+      class="absolute right-3 bottom-3 inline-flex size-11 items-center justify-center rounded-full bg-brand-ink/92 text-white shadow-lg ring-2 ring-white/80 backdrop-blur-sm transition duration-200 group-hover:scale-105 group-hover:bg-brand-violet motion-reduce:transform-none"
+    >
+      <Maximize2 class="size-5" />
+    </span>
+  </button>
+
+  <dialog
+    id={dialogId}
+    closedby="any"
+    aria-labelledby={titleId}
+    data-poster-dialog
+    class="m-auto max-h-[calc(100dvh-2rem)] w-[min(72rem,calc(100vw-2rem))] overflow-hidden rounded-3xl border-0 bg-white p-0 text-brand-ink shadow-2xl"
+  >
+    <div class="grid max-h-[calc(100dvh-2rem)] grid-rows-[auto_1fr]">
+      <header class="flex items-center justify-between gap-4 border-b border-slate-200 bg-white px-4 py-3 sm:px-6">
+        <h2 id={titleId} class="text-base font-black leading-tight text-slate-950 sm:text-xl">{title}</h2>
+        <form method="dialog">
+          <button
+            type="submit"
+            class="focus-ring inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-950 transition hover:border-brand-pink hover:text-brand-pink"
+            aria-label="Cerrar cartel"
+          >
+            <X aria-hidden="true" class="size-5" />
+          </button>
+        </form>
+      </header>
+      <div class="overflow-auto bg-slate-950/95 p-3 sm:p-6">
+        <img
+          src={poster.src}
+          alt={poster.alt}
+          width={poster.width}
+          height={poster.height}
+          class="mx-auto h-auto max-h-[calc(100dvh-8rem)] w-auto max-w-full rounded-xl object-contain shadow-2xl"
+          loading="lazy"
+          decoding="async"
+          fetchpriority="low"
+        />
+      </div>
+    </div>
+  </dialog>
+</div>
+
+<script>
+  const initializePosterDialogs = () => {
+    if (document.documentElement.dataset.posterEscapeReady !== 'true') {
+      document.documentElement.dataset.posterEscapeReady = 'true';
+      document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape') return;
+        const openDialog = document.querySelector<HTMLDialogElement>('[data-poster-dialog][open]');
+        openDialog?.close();
+      });
+    }
+
+    document.querySelectorAll<HTMLButtonElement>('[data-poster-open]').forEach((trigger) => {
+      if (trigger.dataset.posterReady === 'true') return;
+      trigger.dataset.posterReady = 'true';
+
+      const dialogId = trigger.dataset.posterOpen;
+      const dialog = dialogId ? document.getElementById(dialogId) : null;
+      if (!(dialog instanceof HTMLDialogElement)) return;
+
+      trigger.addEventListener('click', () => {
+        dialog.showModal();
+      });
+
+      dialog.addEventListener('close', () => {
+        trigger.focus();
+      });
+    });
+
+    document.querySelectorAll<HTMLDialogElement>('[data-poster-dialog]').forEach((dialog) => {
+      if (dialog.dataset.lightDismissReady === 'true') return;
+      dialog.dataset.lightDismissReady = 'true';
+
+      dialog.addEventListener('click', (event) => {
+        if (event.target !== dialog) return;
+
+        const rect = dialog.getBoundingClientRect();
+        const isDialogContent =
+          rect.top <= event.clientY &&
+          event.clientY <= rect.bottom &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.right;
+
+        if (!isDialogContent && dialog.open) dialog.close();
+      });
+    });
+  };
+
+  initializePosterDialogs();
+  document.addEventListener('astro:page-load', initializePosterDialogs);
+</script>
+
+<style>
+  dialog::backdrop {
+    background: rgb(7 16 51 / 0.78);
+    backdrop-filter: blur(5px);
+  }
+</style>

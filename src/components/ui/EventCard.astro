@@ -1,5 +1,13 @@
 ---
 import { MapPin } from 'lucide-astro';
+import PosterDialog from './PosterDialog.astro';
+
+interface PosterImage {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
 
 interface Props {
   id: string;
@@ -12,9 +20,10 @@ interface Props {
   time: string;
   description: string;
   label_color?: string;
+  poster?: PosterImage;
 }
 
-const { id, date, day, month, fullDate, title, place, time, description, label_color } = Astro.props;
+const { id, date, day, month, fullDate, title, place, time, description, label_color, poster } = Astro.props;
 
 ---
 
@@ -26,12 +35,25 @@ const { id, date, day, month, fullDate, title, place, time, description, label_c
     </time>
   </div>
   <div class="min-w-0">
-    <h3 class="text-lg font-black leading-snug text-slate-950">{title}</h3>
-    <p class="mt-2 text-sm font-black text-brand-violet">{fullDate} · {time}</p>
-    <p class="mt-2 flex items-start gap-2 text-sm font-bold text-slate-700">
-      <MapPin aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-brand-pink" />
-      <span>{place}</span>
-    </p>
-    <p class="mt-3 text-sm leading-7 text-slate-700">{description}</p>
+    <div class="flex flex-nowrap flex-col sm:flex-row items-center justify-between gap-2">
+      <div >
+        <h3 class="text-lg font-black leading-snug text-slate-950">{title}</h3>
+        <p class="mt-2 text-sm font-black text-brand-violet">{fullDate} · {time}</p>
+        <p class="mt-2 flex  items-start gap-2 text-sm font-bold text-slate-700">
+          <MapPin aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-brand-pink" />
+          <span>{place}</span>
+        </p>
+        <p class=" text-sm  text-slate-700">{description}</p>
+      </div>
+      {poster && (
+        <PosterDialog
+          id={`${id}-poster`}
+          title={title}
+          poster={poster}
+          class="mt-5 w-full max-w-40"
+          imageClass="aspect-square object-cover object-top"
+        />
+      )}
+    </div>
   </div>
 </article>
