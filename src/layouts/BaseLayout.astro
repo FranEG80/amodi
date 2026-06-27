@@ -30,6 +30,8 @@ const organizationData = {
     <meta name="description" content={seo.description} />
     <meta name="keywords" content={seo.keywords} />
     <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href={seo.url} />
+    <meta property="og:url" content={seo.url} />
     <meta property="og:title" content={seo.ogTitle} />
     <meta property="og:description" content={seo.ogDescription} />
     <meta property="og:type" content={seo.ogType} />
