@@ -80,7 +80,11 @@ const { pride, events } = Astro.props;
                   <span>{item.place} · {item.time}</span>
                 </p>
               </div>
-              <a href={`#${item.id}`} class="focus-ring inline-flex items-center gap-2 rounded-full px-2 py-2 text-sm font-black text-slate-950 transition hover:text-brand-violet">
+              <a 
+                href={`#${item.id}`} 
+                aria-label={`Ver más sobre ${item.title}`}
+                class="focus-ring inline-flex items-center gap-2 rounded-full px-2 py-2 text-sm font-black text-slate-950 transition hover:text-brand-violet"
+              >
                 <span class="hidden sm:inline">Ver más</span>
                 <ArrowRight aria-hidden="true" class="size-4" />
               </a>
