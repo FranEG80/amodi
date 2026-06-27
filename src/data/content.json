@@ -7,16 +7,16 @@
     "ogTitle": "AMODI — Asociación Motril Diverso",
     "ogDescription": "Asociación LGTBIQA+ de Motril y la Costa Tropical dedicada a la igualdad, la visibilidad, el apoyo comunitario y la defensa de los derechos.",
     "ogType": "website",
-    "ogImage": "/images/hero-playa-granada.png"
+    "ogImage": "/images/hero-playa-granada.webp"
   },
   "brand": {
     "name": "AMODI",
     "fullName": "Asociación Motril Diverso",
     "scope": "Motril y la Costa Tropical",
     "entityType": "Asociación LGTBIQA+",
-    "mainMessage": "Por una Motril diversa, libre y orgullosa.",
+    "mainMessage": "Por un Motril diversa, libre y orgullosa.",
     "logo": {
-      "src": "/images/amodi-logo.png",
+      "src": "/images/amodi-logo.webp",
       "alt": "AMODI — Asociación Motril Diverso",
       "width": 2048,
       "height": 682
@@ -70,7 +70,7 @@
       "href": "#eventos"
     },
     "image": {
-      "src": "/images/hero-playa-granada.png",
+      "src": "/images/hero-playa-granada.webp",
       "alt": "Grupo de jóvenes con una bandera arcoíris en Playa Granada de Motril.",
       "width": 1672,
       "height": 941
@@ -194,7 +194,7 @@
       "href": "#eventos"
     },
     "image": {
-      "src": "/images/orgullo-motril.png",
+      "src": "/images/orgullo-motril.webp",
       "alt": "Celebración del Orgullo con banderas arcoíris en un entorno costero.",
       "width": 1672,
       "height": 941
