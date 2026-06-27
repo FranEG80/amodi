@@ -34,13 +34,14 @@ const organizationData = {
     <meta property="og:type" content={seo.ogType} />
     <meta property="og:image" content={seo.ogImage} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.png" />
     <title>{seo.title}</title>
     <script type="application/ld+json" set:html={JSON.stringify(organizationData)} />
   </head>
   <body>
     <Header brand={brand} navigation={navigation} cta={participation.cta} uiLabels={uiLabels} />
     <main id="main-content">
+     
       <slot />
     </main>
     <Footer brand={brand} footer={footer} contact={contact} uiLabels={uiLabels} />
