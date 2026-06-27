@@ -1,0 +1,48 @@
+---
+import EventCard from '../ui/EventCard.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
+
+interface EventItem {
+  id: string;
+  date: string;
+  day: string;
+  month: string;
+  fullDate: string;
+  title: string;
+  place: string;
+  time: string;
+  description: string;
+  label_color?: string;
+}
+
+interface Props {
+  events: {
+    title: string;
+    items: EventItem[];
+  };
+}
+
+const { events } = Astro.props;
+---
+
+<section id="eventos" class="section-pad bg-white section-pattern">
+  <div class="mx-auto container px-4 sm:px-6 lg:px-8">
+    <SectionTitle title={events.title} />
+    <div class="mt-12 grid gap-5 lg:grid-cols-2">
+      {events.items.map((item) => (
+        <EventCard
+          id={item.id}
+          date={item.date}
+          day={item.day}
+          month={item.month}
+          fullDate={item.fullDate}
+          title={item.title}
+          place={item.place}
+          time={item.time}
+          description={item.description}
+          label_color={item.label_color}
+        />
+      ))}
+    </div>
+  </div>
+</section>

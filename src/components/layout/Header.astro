@@ -1,0 +1,76 @@
+---
+import { Menu } from 'lucide-astro';
+
+interface NavigationItem {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  brand: {
+    logo: {
+      src: string;
+      alt: string;
+      width: number;
+      height: number;
+    };
+  };
+  navigation: NavigationItem[];
+  cta: {
+    label: string;
+    href: string;
+  };
+  uiLabels: {
+    mainNavigation: string;
+    mobileNavigation: string;
+  };
+}
+
+const { brand, navigation, cta, uiLabels } = Astro.props;
+---
+
+<header class="sticky top-0 z-50 border-b border-white/70 bg-white/90 shadow-[0_10px_35px_rgba(7,16,51,0.08)] backdrop-blur-xl">
+  <nav aria-label={uiLabels.mainNavigation} class="mx-auto flex min-h-20 w-full container items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+    <a href="#inicio" class="focus-ring inline-flex shrink-0 rounded-md">
+      <img
+        src={brand.logo.src}
+        alt={brand.logo.alt}
+        width={brand.logo.width}
+        height={brand.logo.height}
+        class="h-12 w-auto sm:h-14"
+        decoding="async"
+      />
+    </a>
+
+    <ul class="hidden items-center gap-1 lg:flex">
+      {navigation.map((item) => (
+        <li>
+          <a class="nav-link" href={item.href}>{item.label}</a>
+        </li>
+      ))}
+    </ul>
+
+    <a class="hidden min-h-11 items-center rounded-full bg-rainbow px-5 py-3 text-sm font-black uppercase text-white shadow-rainbow transition duration-200 hover:-translate-y-0.5 hover:shadow-rainbow-lg focus-ring motion-reduce:transform-none lg:inline-flex" href={cta.href}>
+      {cta.label}
+    </a>
+
+    <details class="mobile-menu relative lg:hidden">
+      <summary class="focus-ring flex min-h-11 min-w-11 cursor-pointer list-none items-center justify-center rounded-full border border-slate-200 bg-white text-slate-950 shadow-soft">
+        <Menu aria-hidden="true" class="size-5" />
+        <span class="sr-only">{uiLabels.mobileNavigation}</span>
+      </summary>
+      <div class="absolute right-0 top-14 w-[min(20rem,calc(100vw-2rem))] rounded-lg border border-slate-200 bg-white p-3 shadow-2xl">
+        <ul class="grid gap-1">
+          {navigation.map((item) => (
+            <li>
+              <a class="nav-link block" href={item.href}>{item.label}</a>
+            </li>
+          ))}
+        </ul>
+        <a class="mt-3 flex min-h-11 items-center justify-center rounded-full bg-rainbow px-5 py-3 text-sm font-black uppercase text-white shadow-rainbow focus-ring" href={cta.href}>
+          {cta.label}
+        </a>
+      </div>
+    </details>
+  </nav>
+</header>

@@ -1,0 +1,32 @@
+---
+import Card from '../ui/Card.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
+
+interface ServiceItem {
+  title: string;
+  text: string;
+  icon: 'support' | 'awareness' | 'events' | 'pride' | 'volunteer';
+  accent: string;
+}
+
+interface Props {
+  services: {
+    title: string;
+    text: string;
+    items: ServiceItem[];
+  };
+}
+
+const { services } = Astro.props;
+---
+
+<section id="servicios" class="section-pad bg-soft">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <SectionTitle title={services.title} text={services.text} />
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+      {services.items.map((item) => (
+        <Card title={item.title} text={item.text} icon={item.icon} accent={item.accent} />
+      ))}
+    </div>
+  </div>
+</section>

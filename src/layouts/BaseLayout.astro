@@ -1,0 +1,48 @@
+---
+import '@fontsource/dancing-script/latin-700.css';
+import '../styles/global.css';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import content from '../data/content.json';
+
+const { seo, brand, navigation, participation, footer, contact, uiLabels } = content;
+
+const organizationData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: brand.fullName,
+  alternateName: brand.name,
+  description: seo.description,
+  email: contact.email.value,
+  telephone: contact.phone.value,
+  address: contact.address.value,
+  areaServed: brand.scope
+};
+---
+
+<!doctype html>
+<html lang={seo.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={seo.description} />
+    <meta name="keywords" content={seo.keywords} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:title" content={seo.ogTitle} />
+    <meta property="og:description" content={seo.ogDescription} />
+    <meta property="og:type" content={seo.ogType} />
+    <meta property="og:image" content={seo.ogImage} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>{seo.title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(organizationData)} />
+  </head>
+  <body>
+    <Header brand={brand} navigation={navigation} cta={participation.cta} uiLabels={uiLabels} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer brand={brand} footer={footer} contact={contact} uiLabels={uiLabels} />
+  </body>
+</html>

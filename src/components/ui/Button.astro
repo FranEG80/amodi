@@ -1,0 +1,49 @@
+---
+import { ArrowRight, CalendarDays, Heart } from 'lucide-astro';
+
+type Variant = 'primary' | 'secondary' | 'light';
+type IconName = 'arrow' | 'calendar' | 'heart';
+
+interface Props {
+  href: string;
+  label: string;
+  variant?: Variant;
+  icon?: IconName;
+  class?: string;
+}
+
+const {
+  href,
+  label,
+  variant = 'primary',
+  icon = 'arrow',
+  class: className = ''
+} = Astro.props;
+
+const icons = {
+  arrow: ArrowRight,
+  calendar: CalendarDays,
+  heart: Heart
+};
+
+const Icon = icons[icon];
+
+const variants = {
+  primary: 'bg-rainbow text-white shadow-rainbow hover:shadow-rainbow-lg',
+  secondary: 'border border-slate-200 bg-white text-slate-950 shadow-soft hover:border-brand-blue/40 hover:text-brand-blue',
+  light: 'bg-white text-slate-950 shadow-soft hover:text-brand-pink'
+};
+
+---
+
+<a
+  href={href}
+  class:list={[
+    'focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-black uppercase transition duration-200 hover:-translate-y-0.5 motion-reduce:transform-none',
+    variants[variant],
+    className
+  ]}
+>
+  <span>{label}</span>
+  <Icon aria-hidden="true" class="size-5" />
+</a>

@@ -1,0 +1,364 @@
+{
+  "seo": {
+    "lang": "es",
+    "title": "AMODI — Asociación Motril Diverso",
+    "description": "Asociación LGTBIQA+ de Motril y la Costa Tropical dedicada a la igualdad, la visibilidad, el apoyo comunitario y la defensa de los derechos.",
+    "keywords": "AMODI, Asociación Motril Diverso, LGTBIQA+ Motril, Orgullo Motril, diversidad, igualdad, Costa Tropical",
+    "ogTitle": "AMODI — Asociación Motril Diverso",
+    "ogDescription": "Asociación LGTBIQA+ de Motril y la Costa Tropical dedicada a la igualdad, la visibilidad, el apoyo comunitario y la defensa de los derechos.",
+    "ogType": "website",
+    "ogImage": "/images/hero-playa-granada.png"
+  },
+  "brand": {
+    "name": "AMODI",
+    "fullName": "Asociación Motril Diverso",
+    "scope": "Motril y la Costa Tropical",
+    "entityType": "Asociación LGTBIQA+",
+    "mainMessage": "Por una Motril diversa, libre y orgullosa.",
+    "logo": {
+      "src": "/images/amodi-logo.png",
+      "alt": "AMODI — Asociación Motril Diverso",
+      "width": 2048,
+      "height": 682
+    }
+  },
+  "uiLabels": {
+    "skipToContent": "Saltar al contenido principal",
+    "mainNavigation": "Navegación principal",
+    "mobileNavigation": "Abrir navegación",
+    "footerNavigation": "Navegación del pie de página",
+    "contactList": "Datos de contacto",
+    "address": "Dirección",
+    "email": "Email",
+    "phone": "Teléfono"
+  },
+  "navigation": [
+    {
+      "label": "Inicio",
+      "href": "#inicio"
+    },
+    {
+      "label": "Quiénes somos",
+      "href": "#que-es-amodi"
+    },
+    {
+      "label": "Orgullo Motril",
+      "href": "#orgullo"
+    },
+    {
+      "label": "Actividades",
+      "href": "#eventos"
+    },
+    {
+      "label": "Noticias",
+      "href": "#noticias"
+    },
+    {
+      "label": "Contacto",
+      "href": "#contacto"
+    }
+  ],
+  "hero": {
+    "title": "Diversidad que nos une.",
+    "subtitle": "AMODI es la Asociación Motril Diverso, una entidad LGTBIQA+ de Motril y la Costa Tropical que trabaja por la igualdad, la visibilidad y los derechos de todas las personas.",
+    "primaryCta": {
+      "label": "Conoce AMODI",
+      "href": "#que-es-amodi"
+    },
+    "secondaryCta": {
+      "label": "Próximos eventos",
+      "href": "#eventos"
+    },
+    "image": {
+      "src": "/images/hero-playa-granada.png",
+      "alt": "Grupo de jóvenes con una bandera arcoíris en Playa Granada de Motril.",
+      "width": 1672,
+      "height": 941
+    }
+  },
+  "about": {
+    "title": "¿Qué es AMODI?",
+    "text": "Defendemos, promovemos y protegemos los derechos humanos, sociales, culturales y políticos de las personas LGTBIQA+ en Motril y la Costa Tropical.",
+    "paragraphs": [
+      "<b>AMODI</b> es una asociación LGTBIQA+ de <strong class=\"text-mark\">Motril y la Costa Tropical</strong> centrada en la visibilidad, la igualdad, la defensa de derechos, el apoyo comunitario, la educación y la sensibilización social.",
+      "Trabajamos para fomentar la igualdad real, el respeto a la diversidad afectivo-sexual, familiar y de género, y una vida cotidiana libre de LGTBIQA+fobia.",
+      "Nuestra labor también incluye acompañamiento, orientación y apoyo a personas y familias, además de colaboración con instituciones, asociaciones, centros educativos, clubes deportivos y colectivos locales."
+    ],
+    "focus": [
+      "Visibilidad y participación social.",
+      "Defensa de derechos humanos y sociales.",
+      "Apoyo comunitario y acompañamiento.",
+      "Educación, deporte inclusivo y sensibilización."
+    ]
+  },
+  "services": {
+    "title": "Servicios / líneas de acción",
+    "text": "Fomentar la igualdad real, la visibilidad, el respeto a la diversidad afectivo-sexual y de género, el apoyo comunitario, la educación y la sensibilización social.",
+    "items": [
+      {
+        "title": "Apoyo y asesoramiento",
+        "text": "Acompañamiento, orientación y escucha para todas las personas.",
+        "accent": "from-red-500 to-orange-400",
+        "image": {
+          "src": "/images/services/apoyo-asesoramiento.webp",
+          "alt": "Ilustración de tres personas acompañándose con un corazón.",
+          "width": 1254,
+          "height": 1254
+        }
+      },
+      {
+        "title": "Sensibilización",
+        "text": "Educamos y sensibilizamos por una sociedad libre de LGTBIQA+fobia.",
+        "accent": "from-amber-400 to-lime-500",
+        "image": {
+          "src": "/images/services/sensibilizacion.webp",
+          "alt": "Ilustración de un megáfono con trazo arcoíris.",
+          "width": 1254,
+          "height": 1254
+        }
+      },
+      {
+        "title": "Actividades y eventos",
+        "text": "Charlas, talleres, cultura, deporte y mucho más.",
+        "accent": "from-pink-500 to-rose-500",
+        "image": {
+          "src": "/images/services/actividades-eventos.webp",
+          "alt": "Ilustración de un calendario con un corazón.",
+          "width": 1254,
+          "height": 1254
+        }
+      },
+      {
+        "title": "Orgullo Motril",
+        "text": "Celebramos la diversidad con orgullo y con toda nuestra ciudad.",
+        "accent": "from-sky-500 to-blue-600",
+        "image": {
+          "src": "/images/services/orgullo-motril.webp",
+          "alt": "Ilustración de unas manos sosteniendo un corazón arcoíris.",
+          "width": 1254,
+          "height": 1254
+        }
+      },
+      {
+        "title": "Voluntariado",
+        "text": "Únete, participa y forma parte del cambio.",
+        "accent": "from-violet-600 to-pink-500",
+        "image": {
+          "src": "/images/services/voluntariado.webp",
+          "alt": "Ilustración de un grupo de personas participando alrededor de un corazón.",
+          "width": 1254,
+          "height": 1254
+        }
+      }
+    ]
+  },
+  "pride": {
+    "title": "Orgullo Motril 2026",
+    "text": "Una programación festiva, reivindicativa, educativa y cultural para celebrar la diversidad, promover la visibilidad y defender los derechos LGTBIQA+.",
+    "paragraphs": [
+      "El Orgullo Motril 2026 reúne actividades festivas, reivindicativas, educativas y culturales impulsadas por el Ayuntamiento de Motril en colaboración con AMODI.",
+      "La programación combina acciones de sensibilización, prevención de la LGBTIQA+fobia, cultura, música, convivencia y participación ciudadana para hacer visible que la diversidad forma parte de la ciudad.",
+      "AMODI recuerda que la defensa de los derechos LGTBIQA+ no es solo una cuestión del colectivo: es una responsabilidad compartida por toda la sociedad."
+    ],
+    "marchSlogan": "Por un Motril orgulloso y diverso.",
+    "route": "La marcha sale el 28 de junio a las 12:00 desde Plaza de las Mercedarias y recorre Avenida Pío XII, Calle Isaac Albéniz, Calle López Rubio, Calle Cuevas y Avenida Andalucía hasta la Plaza de las Comunidades Autónomas, en el Parque de los Pueblos de América.",
+    "highlights": [
+      {
+        "label": "27 junio",
+        "text": "Punto informativo de AMODI en Plaza de la Aurora, de 10:00 a 13:30.",
+        "label_color": "text-blue-500"
+      },
+      {
+        "label": "28 junio",
+        "text": "Marcha del Orgullo Motril 2026 con el lema “Por un Motril orgulloso y diverso”.",
+        "label_color": "text-orange-500"
+      },
+      {
+        "label": "7 julio",
+        "text": "Charla “Orgullo, Diversidad y Educación Sexual” en el Centro de Arte José Hernández Quero.",
+        "label_color": "text-green-500"
+      },
+      {
+        "label": "9 julio",
+        "text": "Proyección de Pride en el Teatro Calderón, con entrada gratuita mediante invitación.",
+        "label_color": "text-purple-500"
+      },
+      {
+        "label": "Orgullo 2026",
+        "text": "Motril Tropical Pride en el Parque de los Pueblos de América, con pregón, DJs, drag, música y animación.",
+        "label_color": "text-pink-500"
+      }
+    ],
+    "cta": {
+      "label": "Ver programa",
+      "href": "#eventos"
+    },
+    "image": {
+      "src": "/images/orgullo-motril.png",
+      "alt": "Celebración del Orgullo con banderas arcoíris en un entorno costero.",
+      "width": 1672,
+      "height": 941
+    }
+  },
+  "events": {
+    "title": "Próximos eventos",
+    "items": [
+      {
+        "id": "punto-informativo-amodi",
+        "date": "2026-06-27",
+        "day": "27",
+        "month": "JUN",
+        "fullDate": "27 junio 2026",
+        "title": "Punto informativo de AMODI",
+        "place": "Plaza de la Aurora",
+        "time": "10:00 a 13:30",
+        "description": "Información sobre diversidad afectivo-sexual, familiar y de género, proyectos de AMODI y participación social.",
+        "label_color": "text-blue-500"
+      },
+      {
+        "id": "marcha-orgullo-motril-2026",
+        "date": "2026-06-28",
+        "day": "28",
+        "month": "JUN",
+        "fullDate": "28 junio 2026",
+        "title": "Marcha del Orgullo Motril 2026",
+        "place": "Salida desde Plaza de las Mercedarias",
+        "time": "12:00",
+        "description": "Salida a las 12:00 desde Plaza de las Mercedarias. Lema: “Por un Motril orgulloso y diverso”.",
+        "label_color": "text-orange-500"
+      },
+      {
+        "id": "motril-tropical-pride",
+        "date": "2026-06-28",
+        "day": "28",
+        "month": "JUN",
+        "fullDate": "28 junio 2026",
+        "title": "Motril Tropical Pride",
+        "place": "Parque de los Pueblos de América",
+        "time": "Durante la jornada",
+        "description": "Pregón, DJs, drag, música, animación y actividades festivas.",
+        "label_color": "text-pink-500"
+      },
+      {
+        "id": "charla-orgullo-diversidad-educacion-sexual",
+        "date": "2026-07-07",
+        "day": "7",
+        "month": "JUL",
+        "fullDate": "7 julio 2026",
+        "title": "Charla: Orgullo, Diversidad y Educación Sexual",
+        "place": "Centro de Arte José Hernández Quero",
+        "time": "19:00",
+        "description": "Charla “Orgullo, Diversidad y Educación Sexual”, a cargo de Abel Viñas.",
+        "label_color": "text-purple-500"
+      },
+      {
+        "id": "proyeccion-pelicula-pride",
+        "date": "2026-07-09",
+        "day": "9",
+        "month": "JUL",
+        "fullDate": "9 julio 2026",
+        "title": "Proyección de la película Pride",
+        "place": "Teatro Calderón",
+        "time": "20:00",
+        "description": "Proyección con entrada gratuita mediante invitación.",
+        "label_color": "text-green-500"
+      }
+    ]
+  },
+  "participation": {
+    "title": "Juntas hacemos una ciudad más libre, más justa y más humana.",
+    "text": "Tu apoyo hace la diferencia.",
+    "message": "Únete. Participa. Haz visible la diversidad.",
+    "cta": {
+      "label": "Hazte socio/a",
+      "href": "#contacto"
+    }
+  },
+  "news": {
+    "title": "Actualidad de AMODI",
+    "items": [
+      {
+        "title": "Marcha del Orgullo Motril 2026",
+        "text": "AMODI invita a la ciudadanía y a los municipios de la Costa Tropical a participar en la marcha bajo el lema ‘Por un Motril orgulloso y diverso’."
+      },
+      {
+        "title": "Motril Orgulloso y Diverso",
+        "text": "Canción oficial de AMODI para el Orgullo 2026."
+      },
+      {
+        "title": "Pregonera del Orgullo LGTBIQA+ Motril 2026",
+        "text": "Laura Hernández Ortega será la pregonera del Orgullo LGTBIQA+ Motril 2026."
+      },
+      {
+        "title": "Mesa de debate sobre derechos LGBTIQ+",
+        "text": "AMODI reunió a colectivos, representantes asociativos y ciudadanía para analizar la situación de los derechos LGBTIQ+ y trasladar propuestas a partidos políticos."
+      }
+    ],
+    "debate": {
+      "title": "Propuestas surgidas en la mesa de debate",
+      "items": [
+        "Implantar de forma efectiva la educación afectivo-sexual en todas las etapas educativas.",
+        "Reforzar la lucha contra el acoso por orientación sexual o identidad de género.",
+        "Mejorar la formación obligatoria en diversidad para administraciones, centros educativos, ámbito sanitario y deportivo.",
+        "Crear espacios seguros y políticas específicas para personas mayores LGBTIQ+.",
+        "Impulsar el deporte inclusivo.",
+        "Endurecer la respuesta frente a delitos de odio."
+      ]
+    }
+  },
+  "contact": {
+    "title": "Contacto",
+    "address": {
+      "label": "Dirección",
+      "value": "C/ Ventura nº6, 18600 Motril, Granada"
+    },
+    "email": {
+      "label": "Email",
+      "value": "lgbtigamodi@gmail.com",
+      "href": "mailto:lgbtigamodi@gmail.com"
+    },
+    "phone": {
+      "label": "Teléfono",
+      "value": "651 857 074",
+      "href": "tel:651857074"
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 AMODI — Asociación Motril Diverso. Todos los derechos reservados.",
+    "links": []
+  },
+  "footerLinks": [
+    {
+      "label": "Quiénes somos",
+      "href": "#que-es-amodi"
+    },
+    {
+      "label": "Servicios",
+      "href": "#servicios"
+    },
+    {
+      "label": "Actividades",
+      "href": "#eventos"
+    },
+    {
+      "label": "Noticias",
+      "href": "#noticias"
+    },
+    {
+      "label": "Contacto",
+      "href": "#contacto"
+    },
+    {
+      "label": "Política de privacidad",
+      "href": "/politica-de-privacidad"
+    },
+    {
+      "label": "Aviso legal",
+      "href": "/aviso-legal"
+    },
+    {
+      "label": "Política de cookies",
+      "href": "/politica-de-cookies"
+    }
+  ]
+}

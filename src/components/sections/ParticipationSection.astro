@@ -1,0 +1,160 @@
+---
+import { Facebook, Heart, Instagram, Mail, MapPin, Music2, Phone } from 'lucide-astro';
+
+interface ContactItem {
+  label: string;
+  value: string;
+  href?: string;
+}
+
+interface Props {
+  participation: {
+    title: string;
+    text: string;
+    message: string;
+    cta: { label: string; href: string };
+  };
+  contact: {
+    address: ContactItem;
+    email: ContactItem;
+    phone: ContactItem;
+  };
+}
+
+const { participation, contact } = Astro.props;
+const contactItems = [
+  { ...contact.address, Icon: MapPin },
+  { ...contact.email, Icon: Mail },
+  { ...contact.phone, Icon: Phone }
+];
+const socialItems = [
+  { label: 'Instagram', Icon: Instagram, text: undefined },
+  { label: 'Facebook', Icon: Facebook, text: undefined },
+  { label: 'X', Icon: undefined, text: 'X' },
+  { label: 'TikTok', Icon: Music2, text: undefined }
+];
+---
+
+<section
+  id="contacto"
+  class="relative isolate overflow-clip bg-white py-48 text-white md:py-40 lg:py-32 xl:py-32"
+>
+  <div
+    aria-hidden="true"
+    class="participation-background absolute inset-0 -z-10 bg-soft bg-center bg-no-repeat"
+  >
+  </div>
+
+  <div
+    class="container mx-auto grid grid-cols-1 gap-10 px-4 md:px-6 xl:grid-cols-3 xl:items-stretch xl:gap-0 xl:px-8"
+  >
+    <div
+      class="flex items-start justify-center gap-1  md:mx-auto md:max-w-3xl md:items-center xl:mx-0 xl:max-w-none xl:justify-start  xl:border-r xl:border-white/35 xl:pr-4 2xl:pr-6"
+    >
+      <svg fill="none" aria-hidden="true" class="h-auto w-16 shrink-0 overflow-visible text-white sm:w-20 md:w-24 xl:w-16 2xl:w-20" viewBox="0 0 120 132"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.2" d="M60.2 117.5c-11.6-12.3-42.5-34.2-45.7-66.7-2.3-23 14.4-36.8 30.3-25.7 8.3 5.8 13.3 15.9 15.6 23.6 4-10.7 10.7-20.8 20.8-25.4 15.6-7.1 28 5.9 24.1 26.4-4.2 22.3-22.6 47.5-45.1 67.8"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.2" d="M56.8 115.2c-14.6-13.4-37.6-34.1-39.4-63.9C16 30.2 30.1 19.2 44 28.4c7.4 4.9 12.3 13.7 15.2 23.2" opacity=".68"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.2" d="M64.2 114.3c14.5-15.1 34.3-41.2 37.9-64.1 2.9-18.5-6.6-28.4-19.8-22.9" opacity=".52"/></svg>
+
+      <h2
+        class="m-0 grid min-w-0 text-center text-xl leading-tight font-black tracking-tight sm:text-2xl md:text-3xl xl:text-2xl 2xl:text-3xl"
+      >
+        <span class="block">Juntas hacemos</span>
+        <span class="block">
+          una ciudad más{' '}
+          <em
+            class="script-underline font-display-script text-3xl leading-none not-italic sm:text-4xl md:text-5xl xl:text-4xl 2xl:text-5xl"
+          >
+            libre
+          </em>,
+        </span>
+        <span class="block">
+          más{' '}
+          <em
+            class="script-underline font-display-script text-3xl leading-none not-italic sm:text-4xl md:text-5xl xl:text-4xl 2xl:text-5xl"
+          >
+            justa
+          </em>
+          {' '}y más{' '}
+          <em class="font-display-script text-3xl leading-none not-italic sm:text-4xl md:text-5xl xl:text-4xl 2xl:text-5xl">
+            humana
+          </em>.
+        </span>
+      </h2>
+    </div>
+
+    <div
+      class="grid content-center justify-items-center gap-6 text-center sm:gap-8 xl:self-stretch xl:border-r xl:border-white/35 xl:px-6 2xl:px-10"
+    >
+      <a
+        href={contact.email.href}
+        class="focus-ring inline-flex min-h-14 min-w-64 items-center justify-center gap-3 rounded-full bg-white px-7 py-4 text-lg leading-none font-black text-brand-ink uppercase no-underline shadow-soft transition duration-200 hover:-translate-y-0.5 hover:text-brand-pink hover:shadow-card motion-reduce:transition-none sm:text-xl"
+      >
+        <span>{participation.cta.label}</span>
+        <Heart aria-hidden="true" class="size-6 shrink-0" />
+      </a>
+      <p
+        class="font-display-script m-0 flex items-center justify-center gap-2 text-3xl leading-tight whitespace-nowrap sm:text-4xl md:text-5xl xl:text-3xl 2xl:text-4xl"
+      >
+        <span class="script-underline">{participation.text.replace('.', '')}</span>
+        <Heart aria-hidden="true" class="hidden size-8 -rotate-6 xl:block 2xl:size-10" />
+      </p>
+    </div>
+
+    <div class="mx-auto grid w-full max-w-md content-center gap-5 xl:mx-0 xl:max-w-none xl:pl-6 2xl:pl-12">
+      <ul class="m-0 grid list-none gap-4 p-0">
+        {contactItems.map(({ label, value, href, Icon }) => (
+          <li>
+            {href ? (
+              <a
+                href={href}
+                class="focus-ring flex items-center gap-4 rounded-md text-base leading-7 font-black text-white no-underline transition-opacity duration-150 hover:opacity-80 sm:text-lg"
+              >
+                <Icon aria-hidden="true" class="mt-0.5 size-8 shrink-0 rounded-full border-2 border-white p-1.5 text-white" />
+                <span>
+                  <span class="sr-only">{label}: </span>
+                  {value}
+                </span>
+              </a>
+            ) : (
+              <span
+                class="flex items-center gap-4 rounded-md text-base leading-7 font-black text-white no-underline sm:text-lg"
+              >
+                <Icon aria-hidden="true" class="mt-0.5 size-8 shrink-0 rounded-full border-2 border-white p-1.5 text-white" />
+                <span>
+                  <span class="sr-only">{label}: </span>
+                  {value}
+                </span>
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
+
+      <ul aria-label="Redes sociales" class="m-0 flex list-none flex-wrap gap-3 p-0">
+        {socialItems.map(({ label, Icon, text }) => (
+          <li>
+            <span
+              class="flex size-12 items-center justify-center rounded-full bg-white text-brand-violet shadow-soft"
+              aria-label={label}
+            >
+              {Icon
+                ? <Icon aria-hidden="true" class="size-6" />
+                : <span aria-hidden="true" class="text-lg font-black">{text}</span>}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .participation-background {
+    background-image: url("/images/cta-rainbow-brush.webp");
+    background-size: 100% 120%;
+  }
+
+  @media (min-width: 80rem) {
+    .participation-background {
+      background-size: 100% 100%;
+    }
+  }
+</style>

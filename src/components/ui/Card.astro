@@ -1,0 +1,32 @@
+---
+import { CalendarHeart, HandHeart, HeartHandshake, Megaphone, Users } from 'lucide-astro';
+
+type IconName = 'support' | 'awareness' | 'events' | 'pride' | 'volunteer';
+
+interface Props {
+  title: string;
+  text: string;
+  icon: IconName;
+  accent: string;
+}
+
+const { title, text, icon, accent } = Astro.props;
+const icons = {
+  support: HeartHandshake,
+  awareness: Megaphone,
+  events: CalendarHeart,
+  pride: HandHeart,
+  volunteer: Users
+};
+const Icon = icons[icon];
+---
+
+<article class="group relative overflow-hidden rounded-lg border border-white/80 bg-white p-6 text-center shadow-soft transition duration-200 hover:-translate-y-1 hover:shadow-card motion-reduce:transform-none">
+  <span aria-hidden="true" class:list={['absolute inset-x-8 top-5 h-16 rounded-full bg-gradient-to-r opacity-15 blur-xl', accent]}></span>
+  <div class:list={['relative mx-auto mb-5 flex size-20 items-center justify-center rounded-lg bg-gradient-to-br text-white shadow-soft', accent]}>
+    <Icon aria-hidden="true" class="size-10" stroke-width={1.8} />
+  </div>
+  <h3 class="text-xl font-black leading-tight text-slate-950">{title}</h3>
+  <p class="mt-3 text-sm leading-7 text-slate-700">{text}</p>
+  <span aria-hidden="true" class:list={['mx-auto mt-6 block h-1 w-16 rounded-full bg-gradient-to-r', accent]}></span>
+</article>

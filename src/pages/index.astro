@@ -1,17 +1,19 @@
 ---
-import '../styles/global.css';
+import AboutSection from '../components/sections/AboutSection.astro';
+import EventsSection from '../components/sections/EventsSection.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
+import NewsSection from '../components/sections/NewsSection.astro';
+import ParticipationSection from '../components/sections/ParticipationSection.astro';
+import PrideSection from '../components/sections/PrideSection.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import content from '../data/content.json';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <HeroSection hero={content.hero} mainMessage={content.brand.mainMessage} />
+  <AboutSection about={content.about} services={content.services} />
+  <PrideSection pride={content.pride} events={content.events} />
+  <EventsSection events={content.events} />
+  <NewsSection news={content.news} />
+  <ParticipationSection participation={content.participation} contact={content.contact} />
+</BaseLayout>

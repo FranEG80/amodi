@@ -1,0 +1,97 @@
+---
+import { Mail, MapPin, Phone } from 'lucide-astro';
+
+interface FooterLink {
+  label: string;
+  href?: string;
+  pending?: boolean;
+}
+
+interface Props {
+  brand: {
+    logo: {
+      src: string;
+      alt: string;
+      width: number;
+      height: number;
+    };
+  };
+  footer: {
+    copyright: string;
+    links: FooterLink[];
+  };
+  contact: {
+    address: { label: string; value: string; href?: string };
+    email: { label: string; value: string; href: string };
+    phone: { label: string; value: string; href: string };
+  };
+  uiLabels: {
+    footerNavigation: string;
+    contactList: string;
+  };
+}
+
+const { brand, footer, contact, uiLabels } = Astro.props;
+const contactItems = [
+  { ...contact.address, Icon: MapPin },
+  { ...contact.email, Icon: Mail },
+  { ...contact.phone, Icon: Phone }
+];
+---
+
+<footer class="border-t border-slate-200 bg-white">
+  <!-- <div class="mx-auto grid w-full container gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_1.5fr_1fr] lg:px-8">
+    <a href="#inicio" class="focus-ring inline-flex w-fit rounded-md">
+      <img
+        src={brand.logo.src}
+        alt={brand.logo.alt}
+        width={brand.logo.width}
+        height={brand.logo.height}
+        class="h-14 w-auto"
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+
+    <nav aria-label={uiLabels.footerNavigation}>
+      <ul class="flex flex-wrap justify-start gap-x-5 gap-y-3 text-sm font-bold text-slate-700 lg:justify-center">
+        {footer.links.map((item) => (
+          <li>
+            {item.href ? (
+              <a href={item.href} class="rounded-sm transition hover:text-brand-blue focus-ring">{item.label}</a>
+            ) : (
+              <span aria-disabled="true" class="text-slate-500">{item.label}</span>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <ul aria-label={uiLabels.contactList} class="grid gap-3 text-sm font-bold text-slate-700">
+      {contactItems.map(({ label, value, href, Icon }) => (
+        <li>
+          {href ? (
+            <a href={href} class="group flex items-start gap-3 rounded-md focus-ring">
+              <Icon aria-hidden="true" class="mt-0.5 size-5 shrink-0 text-brand-blue transition group-hover:text-brand-pink" />
+              <span>
+                <span class="sr-only">{label}: </span>
+                {value}
+              </span>
+            </a>
+          ) : (
+            <span class="flex items-start gap-3 rounded-md">
+              <Icon aria-hidden="true" class="mt-0.5 size-5 shrink-0 text-brand-blue" />
+              <span>
+                <span class="sr-only">{label}: </span>
+                {value}
+              </span>
+            </span>
+          )}
+        </li>
+      ))}
+    </ul>
+  </div> -->
+  <div class="border-t border-slate-100 px-4 py-5 text-center text-sm font-medium text-slate-700">
+    {footer.copyright}
+  </div>
+</footer>

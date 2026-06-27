@@ -1,0 +1,90 @@
+---
+import SectionTitle from '../ui/SectionTitle.astro';
+
+interface Props {
+  about: {
+    title: string;
+    text: string;
+    paragraphs?: string[];
+    focus?: string[];
+  };
+  services: {
+    title: string;
+    text: string;
+    items: {
+      title: string;
+      text: string;
+      accent: string;
+      image: {
+        src: string;
+        alt: string;
+        width: number;
+        height: number;
+      };
+    }[];
+  };
+}
+
+const { about, services } = Astro.props;
+const paragraphs = about.paragraphs ?? [about.text];
+const serviceAccentClasses = [
+  'from-red-500 to-orange-400',
+  'from-amber-400 to-lime-500',
+  'from-pink-500 to-rose-500',
+  'from-sky-500 to-blue-600',
+  'from-violet-600 to-pink-500'
+];
+---
+
+<section id="que-es-amodi" class="section-pad bg-white">
+  <div class="mx-auto container px-4 sm:px-6 lg:px-8 ">
+    <SectionTitle title={about.title} />
+
+    <div class="mt-12 grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-center">
+      <div class="space-y-5">
+        {paragraphs.map((paragraph) => (
+          <p class="rich-text max-w-4xl text-pretty text-lg leading-9 text-slate-700" set:html={paragraph} />
+        ))}
+      </div>
+
+      {about.focus && (
+        <aside class="rounded-lg border border-slate-100 bg-soft p-6 shadow-rainbow-lg">
+          <h3 class="text-xl font-black text-slate-950">Dónde ponemos el foco</h3>
+          <ul class="mt-5 grid gap-3">
+            {about.focus.map((item) => (
+              <li class="flex gap-3 text-sm font-bold leading-7 text-slate-700">
+                <span aria-hidden="true" class="mt-2 size-2 shrink-0 rounded-full bg-brand-violet"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )}
+    </div>
+
+    <div id="servicios" class="mt-16 scroll-mt-28">
+      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        {services.items.map((item, index) => {
+          const accent = serviceAccentClasses[index % serviceAccentClasses.length];
+
+          return (
+            <article class="grid min-h-full grid-rows-[auto_auto_1fr_auto] rounded-lg border border-slate-100 bg-white p-5 text-center shadow-soft transition duration-200 hover:-translate-y-1 hover:shadow-card motion-reduce:transform-none">
+              <img
+                src={item.image.src}
+                alt={item.image.alt}
+                width={item.image.width}
+                height={item.image.height}
+                class="mx-auto aspect-square w-full max-w-36 object-contain sm:max-w-40"
+                loading="lazy"
+                decoding="async"
+              />
+              <h4 class="mt-5 text-xl font-black leading-tight text-slate-950">{item.title}</h4>
+              <p class="mt-4 text-sm leading-7 text-slate-700">{item.text}</p>
+              <span aria-hidden="true" class:list={['mx-auto mt-6 block h-1 w-20 rounded-full bg-gradient-to-r', accent]}></span>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>
